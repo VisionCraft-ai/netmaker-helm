@@ -15,7 +15,7 @@ spec:
             labels:
                 app: {{ include "netmaker.fullname" . }}
             annotations:
-            {{- if .Values.service.wireguard.metrics.enabled }}
+            {{- if .Values.server.metrics.enabled }}
               prometheus.io/path: '/metrics'
               prometheus.io/port: '9586'
               prometheus.io/scrape: 'true'
@@ -27,15 +27,7 @@ spec:
                 {{ toYaml . | nindent 16 }}
                 {{- end }}
             containers:
-            {{- if .Values.service.wireguard.healthcheck.enabled }}
-            - name: sidecar-healthcheck
-              image: nginx:alpine
-              ports:
-                - name: wg-health
-                  containerPort: 80
-                  protocol: TCP
-            {{- end }}
-            {{- if .Values.service.wireguard.metrics.enabled }}
+            {{- if .Values.server.metrics.enabled }}
             - name: prometheus-exporter
               image: mindflavor/prometheus-wireguard-exporter:3.6.6
               args: ["-a", "false"]
