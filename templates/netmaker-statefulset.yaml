@@ -10,6 +10,8 @@ spec:
      matchLabels:
         app: {{ include "netmaker.fullname" . }}
     serviceName: {{ include "netmaker.fullname" . }}-headless
+    updateStrategy:
+      type: Recreate
     template:
         metadata:
             labels:
