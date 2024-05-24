@@ -23,6 +23,7 @@ spec:
         spec:
             affinity:
               podAntiAffinity:
+                requiredDuringSchedulingIgnoredDuringExecution:
                 {{- with .Values.server.extraPodAntiAffinity }}
                 {{ toYaml . | nindent 16 }}
                 {{- end }}
