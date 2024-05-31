@@ -92,6 +92,8 @@ dns:
   # -- whether or not to deploy coredns
   enabled: false
   storageSize: 128Mi
+  ClusterIP: ""
+  corednsImage: "coredns/coredns:1.10.1"
   RWX:
     storageClassName: ""
 
