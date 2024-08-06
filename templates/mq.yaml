@@ -56,7 +56,6 @@ spec:
           tcpSocket:
             port: 8883
           timeoutSeconds: 1
-        resources: {}
         startupProbe:
           failureThreshold: 30
           periodSeconds: 5

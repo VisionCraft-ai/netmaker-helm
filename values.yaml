@@ -46,7 +46,7 @@ mq:
   replicas: 2
   resources:
     requests:
-      cpu: 2m
+      cpu: 5m
       memory: 50Mi
   username: netmaker
   password: 3yyerWGdds43yegGR
