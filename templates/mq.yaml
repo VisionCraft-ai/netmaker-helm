@@ -31,6 +31,10 @@ spec:
         image: eclipse-mosquitto:2.0.11-openssl
         command: ["/mosquitto/config/wait.sh"]
         imagePullPolicy: Always
+        resources:
+          requests:
+            memory: {{ .Values.mq.resources.requests.memory }}
+            cpu: {{ .Values.mq.resources.requests.cpu }}
         livenessProbe:
           failureThreshold: 3
           periodSeconds: 10

@@ -66,6 +66,10 @@ spec:
                     name: {{ include "netmaker.fullname" . }}-env
               image: "{{ .Values.server.image.repository }}:{{ .Values.server.image.tag }}"
               imagePullPolicy: {{ .Values.server.image.pullPolicy }}
+              resources:
+                requests:
+                  memory: {{ .Values.server.resources.requests.memory }}
+                  cpu: {{ .Values.server.resources.requests.cpu }}
               ports:
               - containerPort: {{ .Values.service.restPort }}
                 protocol: TCP

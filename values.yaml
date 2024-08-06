@@ -29,6 +29,10 @@ podSecurityContext: {}
 ui:
   # -- how many UI replicas to create
   replicas: 2
+  resources:
+    requests:
+      cpu: 5m
+      memory: 15Mi
   image:
     # -- The image repo to pull Netmaker image from
     repository: gravitl/netmaker-ui
@@ -40,12 +44,20 @@ ui:
 mq:
   # -- how many MQTT replicas to create
   replicas: 2
+  resources:
+    requests:
+      cpu: 2m
+      memory: 50Mi
   username: netmaker
   password: 3yyerWGdds43yegGR
 
 server:
   # -- number of netmaker server replicas to create
   replicas: 2
+  resources:
+    requests:
+      cpu: 10m
+      memory: 25Mi
   image:
     # -- The image repo to pull Netmaker image from
     repository: gravitl/netmaker
@@ -94,6 +106,10 @@ dns:
   storageSize: 128Mi
   ClusterIP: ""
   corednsImage: "coredns/coredns:1.10.1"
+  resources:
+    requests:
+      cpu: 20m
+      memory: 50Mi
   RWX:
     storageClassName: ""
 

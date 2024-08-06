@@ -22,6 +22,10 @@ spec:
         image: {{ .Values.dns.corednsImage }}
         imagePullPolicy: Always
         name: netmaker-dns
+        resources:
+          requests:
+            memory: {{ .Values.dns.resources.requests.memory }}
+            cpu: {{ .Values.dns.resources.requests.cpu }}
         ports:
         - containerPort: 53
           name: dns
